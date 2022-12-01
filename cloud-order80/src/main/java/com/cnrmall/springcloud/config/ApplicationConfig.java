@@ -20,9 +20,14 @@ public class ApplicationConfig {
      * @return
      */
     @Bean
-    @LoadBalanced   //使用ribbon 的负载均衡
+    @LoadBalanced   //注意: 负载均衡 微服务名替换为具体的ip:port
     public RestTemplate getRestTemplate(){
         return new RestTemplate();
     }
+
+//    @Bean
+//    public IRule myRule(){
+//        return  new RandomRule(); //定义随机Rule
+//    }
 
 }

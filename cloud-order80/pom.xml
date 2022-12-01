@@ -17,10 +17,25 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-            <version>3.1.4</version>
         </dependency>
 
-        <!-- 引入公共包 -->
+          <!--  spring-cloud-starter-netflix-eureka-client 3.0以上默认不再集成Ribbon而改为集成spring-cloud-starter-loadbalancer   -->
+         <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-netflix-eureka-client -->
+<!--         <dependency>-->
+<!--             <groupId>org.springframework.cloud</groupId>-->
+<!--             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>-->
+<!--             <version>2.2.9.RELEASE</version>-->
+<!--         </dependency>-->
+
+
+         <!--添加ribbon的依赖-->
+         <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-netflix-ribbon -->
+<!--         <dependency>-->
+<!--             <groupId>org.springframework.cloud</groupId>-->
+<!--             <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>-->
+<!--         </dependency>-->
+
+         <!-- 引入公共包 -->
         <dependency>
             <groupId>com.cnrmall.springcloud</groupId>
             <artifactId>cloud-api-commons</artifactId>

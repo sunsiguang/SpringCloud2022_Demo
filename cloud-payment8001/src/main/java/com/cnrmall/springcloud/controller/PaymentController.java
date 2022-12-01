@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,6 +28,8 @@ import java.util.Map;
 @Slf4j
 public class PaymentController {
 
+    @Value("${server.port}")
+    private String serverPort ;
     @Autowired
     private PaymentService paymentService;
 
@@ -42,9 +45,9 @@ public class PaymentController {
         Payment payment = paymentService.selectById(id);
         cr.setData(payment);
         if (payment!=null){
-            cr = new CommonResult(200,"查询成功",payment);
+            cr = new CommonResult(200,"查询成功,serverPort:"+serverPort ,payment);
         }else{
-            cr = new CommonResult(401,"查询失败",payment);
+            cr = new CommonResult(401,"查询失败,serverPort:"+serverPort ,payment);
         }
         return cr;
     }

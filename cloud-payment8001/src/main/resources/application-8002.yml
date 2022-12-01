@@ -33,7 +33,8 @@ eureka:
       #集群配置
       defaultZone:  http://eureka8761.com:8761/eureka/, http://eureka8762.com:8762/eureka/, http://eureka8763.com:8763/eureka/
   instance:
-    instance-id:  payment8002   #在Eureka Service  instance 显示实例名称
+#    instance-id:  ${spring.application.name}   #在Eureka Service  instance 显示实例名称
     prefer-ip-address: true      # 在Eureka Service iinstance 上显示IP
     lease-renewal-interval-in-seconds: 1  #默认30s , Eureka 客户端向服务端发送心跳的时间间隔，默认30s
     lease-expiration-duration-in-seconds: 2  #Eureka 服务端在收到最后一次心跳后等待时间上限，默认90s
+    app-group-name: ${spring.application.name}
