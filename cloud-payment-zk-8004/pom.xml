@@ -41,11 +41,18 @@
             <artifactId>spring-boot-devtools</artifactId>
         </dependency>
 
-
+        <!--  使用Zookeeper , 注释掉 Consul  -->
         <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-zookeeper-discovery -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-zookeeper-discovery</artifactId>
+        </dependency>
+
+        <!--  使用Consul, 注释掉 Zookeeper  -->
+        <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-consul-discovery -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-consul-discovery</artifactId>
         </dependency>
 
     </dependencies>

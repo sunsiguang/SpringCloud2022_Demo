@@ -22,4 +22,11 @@ public class PaymentController {
        log.info(str);
        return  str;
     }
+
+    @GetMapping(value = "/consul")
+    public  String getConsulService(){
+        String str = "SpringCloud Consul:"+serverPort+"\t"+ UUID.randomUUID().toString();
+        log.info(str);
+        return  str;
+    }
 }
