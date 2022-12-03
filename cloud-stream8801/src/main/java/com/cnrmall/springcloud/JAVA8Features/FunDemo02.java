@@ -41,11 +41,9 @@ public class FunDemo02 {
 //            }
 //        };
 //        consumer.accept("消费型函数：没有使用Lambda表达式");
-
 //        使用Lambda表达式
         Consumer<String> consumer = s -> log.info(s);
         consumer.accept("消费型函数：Consumer Demo");
-
     }
     public void supplierTest(){
 //        非Lambda表达式
