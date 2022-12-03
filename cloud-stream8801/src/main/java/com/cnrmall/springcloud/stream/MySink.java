@@ -7,9 +7,7 @@ import org.springframework.messaging.SubscribableChannel;
  *  自定义  INPUT
  */
 public interface MySink {
-
     String INPUT1 = "input1" ;
-
     @Input(MySink.INPUT1)
     SubscribableChannel inut1();
 
