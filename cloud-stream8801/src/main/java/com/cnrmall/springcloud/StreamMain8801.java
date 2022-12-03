@@ -23,6 +23,6 @@ public class StreamMain8801 implements CommandLineRunner {
     }
 
     public void run(String... args) throws Exception {
-//        messageProviderImpl.send();
+        messageProviderImpl.send();
     }
 }
