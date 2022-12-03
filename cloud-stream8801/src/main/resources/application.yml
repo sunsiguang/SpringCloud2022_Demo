@@ -1,0 +1,39 @@
+rocketmq:
+    name-server: 192.168.7.16:9876
+
+spring:
+  cloud:
+    stream:
+      rocketmq:
+        binder:
+          name-server: 192.168.7.16:9876
+      bindings:
+        output:
+          destination: myTopic
+          content-type: text/plain
+          group:  test-Group
+        input:
+          destination: myTopic
+          content-type: text/plain
+          group: test-Group
+
+        output1:
+          destination: testTopic1
+          content-type: text/plain
+          group: test-Group1
+
+        output2:
+          destination: testTopic2
+          content-type: text/plain
+          group: test-Group2
+
+        input1:
+          destination: testTopic1
+          content-type: text/plain
+          group: test-Group1
+
+        input2:
+          destination: testTopic2
+          content-type: text/plain
+          group: test-Group2
+
