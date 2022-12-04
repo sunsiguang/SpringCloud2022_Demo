@@ -20,9 +20,7 @@ public class Payment implements Serializable{
 //    @TableId(type = IdType.AUTO,value = "ID")
     @TableId(type = IdType.AUTO)  //主键自增
     private Long id;
-
     private String name ;
-
     private Double amount;
 
 }

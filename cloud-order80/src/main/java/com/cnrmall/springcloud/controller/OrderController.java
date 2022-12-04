@@ -23,8 +23,6 @@ public class OrderController {
     @PostMapping("/order/create")
     public CommonResult<Payment> create(Payment payment){
 
-
-
-        return restTemplate.postForObject(PAYMENT_URL + "/pay/create",payment,CommonResult.class);
+       return restTemplate.postForObject(PAYMENT_URL + "/pay/create",payment,CommonResult.class);
     }
 }
