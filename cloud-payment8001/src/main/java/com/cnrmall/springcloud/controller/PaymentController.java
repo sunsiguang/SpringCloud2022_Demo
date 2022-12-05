@@ -1,6 +1,7 @@
 package com.cnrmall.springcloud.controller;
 
-import com.cnrmall.springcloud.entities.CommonResult;
+
+import com.cnrmall.springcloud.entites.CommonResult;
 import com.cnrmall.springcloud.entities.Payment;
 import com.cnrmall.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
@@ -30,7 +31,15 @@ public class PaymentController {
         return cr;
     }
 
-
+    /**
+     * 坑2
+     * @RequestBody
+     * 主要用来接收前端传递给后端的json字符串中的数据的(请求体中的数据的)；而最常用的使用请求体传参的无疑是POST请求了，
+     * 所以使用@RequestBody接收数据时，一般都用POST方式进行提交。
+     *
+     * @param payment
+     * @return
+     */
     @PostMapping("/create")
     public CommonResult create(@RequestBody Payment payment){
         CommonResult cr = null;

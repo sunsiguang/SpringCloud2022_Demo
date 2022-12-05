@@ -11,6 +11,7 @@
         <module>cloud-order80</module>
         <module>cloud-api-commons</module>
         <module>cloud-stream8801</module>
+        <module>cloud-eureka-server</module>
 
     </modules>
 
