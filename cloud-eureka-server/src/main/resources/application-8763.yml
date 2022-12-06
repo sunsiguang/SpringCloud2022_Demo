@@ -7,10 +7,6 @@ spring:
 
 eureka:
   instance:
-    #表示eureka server收到client的心跳时间开始 到等待下一次时心跳时间的最大等待时间 默认为90s 超过等待90秒 eureka server就会该实例剔除服务注册中心 （按需更改，可以不配置使用默认）
-    lease-expiration-duration-in-seconds: 90
-    #标识eureka client发送给server端的频率 如果在规定时间内 server端还未接收到心跳 则剔除该实例 默认时间30s （按需更改，可以不配置使用默认）
-    lease-renewal-interval-in-seconds: 30
     hostname: eureka8763.com     #eureka 服务端的实例名称 , 对应的hosts 目录下的主机名
 
   client:
@@ -24,4 +20,11 @@ eureka:
       #defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@localhost:7001/eureka/
       # 集群原理 : 互相注册，相互守望
       defaultZone:  http://eureka8761.com:8761/eureka/, http://eureka8762.com:8762/eureka/, http://eureka8763.com:8763/eureka/
+
+  server:
+      enable-self-preservation: false  #默认true , 开启自我保护机制
+      eviction-interval-timer-in-ms: 2000  # 2000毫秒就放弃
+      #网页上会显示：
+     #THE SELF PRESERVATION MODE IS TURNED OFF. THIS MAY NOT PROTECT INSTANCE EXPIRY IN CASE OF NETWORK/OTHER PROBLEMS.
+
 
