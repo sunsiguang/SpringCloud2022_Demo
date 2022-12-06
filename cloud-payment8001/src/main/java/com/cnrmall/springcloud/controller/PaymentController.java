@@ -1,13 +1,25 @@
 package com.cnrmall.springcloud.controller;
 
 
+import cn.hutool.core.util.StrUtil;
 import com.cnrmall.springcloud.entites.CommonResult;
 import com.cnrmall.springcloud.entities.Payment;
 import com.cnrmall.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.annotation.Resource;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 @RestController
@@ -17,6 +29,12 @@ public class PaymentController {
 
     @Autowired
     private PaymentService paymentService;
+
+    @Resource
+    private DiscoveryClient discoveryClient ;  //客户端发现
+
+    @Value("${spring.application.name}")
+    private String applicationName;
 
     @GetMapping("/query/{id}")
     public CommonResult queryPayment(@PathVariable int id){
@@ -51,6 +69,35 @@ public class PaymentController {
             cr = new CommonResult(401,"插入数据库失败");
         }
         return cr;
+    }
+
+
+    /**
+     *  注册的服务
+     *  注册是实例
+     * @return
+     */
+    @GetMapping("/discovery")
+    public Map discovery(){
+        List<String> services = discoveryClient.getServices();
+        for (String service : services) {
+            log.info("====service====,{}",service);
+        }
+
+        List<ServiceInstance> instances = discoveryClient.getInstances(applicationName);
+        for (ServiceInstance instance : instances) {
+            instance.getHost();
+            instance.getInstanceId();
+            instance.getPort();
+
+            System.out.println(StrUtil.toString(instance));
+            log.info("======instance=====,{}", instance.getUri());
+        }
+//        ModelAndView modelAndView = new ModelAndView();
+        Map map = new HashMap<String,Object>();
+        map.put("service",services);
+        map.put("instances", instances );
+        return  map;
     }
 
 }
