@@ -1,0 +1,11 @@
+server:
+  port: 8003
+spring:
+  application:
+    name: cloud-payment-service  #服务名
+
+  #注册zookeeper中心地址
+  cloud:
+    zookeeper:
+      connect-string:  localhost:2181
+      # 注册到注册中心的节点，是临时节点, ls /services/cloud-payment-service

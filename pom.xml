@@ -13,6 +13,7 @@
         <module>cloud-stream8801</module>
         <module>cloud-eureka-server</module>
         <module>cloud-payment-zk-8004</module>
+        <module>cloud-order-zk-80</module>
 
     </modules>
 
