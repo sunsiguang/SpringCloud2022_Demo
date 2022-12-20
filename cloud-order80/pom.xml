@@ -13,6 +13,12 @@
 
      <dependencies>
 
+         <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-openfeign -->
+         <dependency>
+             <groupId>org.springframework.cloud</groupId>
+             <artifactId>spring-cloud-starter-openfeign</artifactId>
+         </dependency>
+
         <!-- 引入 netflix  client 包 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
