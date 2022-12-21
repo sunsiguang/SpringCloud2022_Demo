@@ -1,0 +1,15 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="StreamMain8801" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="com.cnrmall.springcloud.StreamMain8801" />
+    <module name="cloud-stream8801" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="com.cnrmall.springcloud.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

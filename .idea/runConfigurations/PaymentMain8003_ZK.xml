@@ -1,0 +1,20 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="PaymentMain8003_ZK" type="Application" factoryName="Application">
+    <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+    <envs>
+      <env name="spring.profiles.active" value="8003" />
+    </envs>
+    <option name="MAIN_CLASS_NAME" value="com.cnrmall.springcloud.PaymentMain8004" />
+    <module name="cloud-payment-zk-8004" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="com.cnrmall.springcloud.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

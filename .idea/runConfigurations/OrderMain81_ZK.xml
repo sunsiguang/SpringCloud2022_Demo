@@ -1,0 +1,20 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="OrderMain81_ZK" type="Application" factoryName="Application">
+    <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+    <envs>
+      <env name="spring.profiles.active" value="zk-81" />
+    </envs>
+    <option name="MAIN_CLASS_NAME" value="com.cnrmall.springcloud.OrderMainZK" />
+    <module name="cloud-order-zk-80" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="com.cnrmall.springcloud.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
