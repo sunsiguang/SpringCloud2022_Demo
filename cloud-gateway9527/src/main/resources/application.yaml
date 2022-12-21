@@ -1,0 +1,16 @@
+# 不生效
+### GatewayFilter Factories
+# 参考Demo  https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#gatewayfilter-factories
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: add_request_header_route
+          uri: https://example.org
+          predicates:
+            - Path=/red/{segment}
+          filters:
+            - AddRequestHeader=X-Request-Red, Blue-{segment}
+
+
+

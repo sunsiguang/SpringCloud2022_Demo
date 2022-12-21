@@ -39,6 +39,13 @@ public class PaymentController {
     @Value("${spring.application.name}")
     private String applicationName;
 
+
+
+    @GetMapping("/lb")
+    public String queryPaymentLB(){
+        return serverPort;
+    }
+
     @GetMapping("/query/{id}")
     public CommonResult queryPayment(@PathVariable int id){
         CommonResult cr = new CommonResult();

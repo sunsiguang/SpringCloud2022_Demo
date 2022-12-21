@@ -24,5 +24,11 @@
 * port : 8003 , 8004 , 使用注册中心：Zookeeper
 * port : 8005 , 8006 , 使用注册中心：Consul
 
+## SpringCloud Gateway Service 网关(9527)
+
+## SpringCloud Config 配置中心 ，Nacos 可以替代
+
+## SpringCloud Bus  消息总线 ()， Nacos 可以替代
+
 
 
