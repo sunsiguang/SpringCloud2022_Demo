@@ -1,0 +1,31 @@
+server:
+   port: 3355
+
+spring:
+    application:
+        name: cloud-config-client
+#    config:
+#      import:  optional:configserver:http://localhost:8888
+    cloud:
+        # Spring Boot 2.4 introduced a new way to import configuration data via the spring.config.import property. This is now the default way to bind to Config Server.
+        #  Spring Boot 2.4  引入了一种通过spring.config.import属性导入配置数据的新方法。这是现在绑定到配置服务器的默认方式。
+        #  spring.config.import=configserver:http://configserver.example.com?fail-fast=true&max-attempts=10&max-interval=1500&multiplier=1.2&initial-interval=1100"
+        config:
+            label: master  # 分支名称
+            name: config  #  配置文件名称
+            profile: dev    #  读取后缀名称  ， 上述： master分支上的 config-dev.yml 配置文件
+            uri:  http://localhost:8888  #配置中心地址
+
+# 客户端Eureka 配置
+eureka:
+  client:
+    service-url:
+      #defaultZone:  localhost:8761/eureka/    #单机配置
+      defaultZone:  http://eureka8761.com:8761/eureka/
+
+# 暴漏监控端点, 配置文件自动刷新
+management:
+    endpoints:
+        web:
+             exposure:
+                 include:  "*"

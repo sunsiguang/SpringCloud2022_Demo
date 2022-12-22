@@ -26,7 +26,8 @@
 
 ## SpringCloud Gateway Service 网关(9527)
 
-## SpringCloud Config 配置中心 ，Nacos 可以替代
+## SpringCloud Config Server 配置中心 ，Nacos 可以替代
+* 127.0.0.1 config8888.com
 
 ## SpringCloud Bus  消息总线 ()， Nacos 可以替代
 
