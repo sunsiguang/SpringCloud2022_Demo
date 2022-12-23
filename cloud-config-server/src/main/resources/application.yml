@@ -17,9 +17,9 @@ spring:
 #          username: configserver
 #          password: DZ4anb8c
           label: master
-          default-label: master
+          default-label: master   # 添加不会报错，但不影响使用
 
-  # 添加 rabbitMQ 配置支持，用于BUS 消息总线推送
+  # 添加 rabbitMQ 配置支持，用于BUS 消息总线推送，注意：Spring.rabbitmq.***
   rabbitmq:
       host: localhost
       port: 5672
