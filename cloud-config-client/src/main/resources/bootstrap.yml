@@ -4,8 +4,14 @@ server:
 spring:
     application:
         name: cloud-config-client
-#    config:
-#      import:  optional:configserver:http://localhost:8888
+
+    zipkin: # 增加 链路追踪 配置类  , # zipkin的服务地址
+      base-url: http://localhost:9411
+    sleuth:
+      sampler:
+        # 采样率，介于0到1之间，1表示全部采集
+        probability: 1
+
     cloud:
         # Spring Boot 2.4 introduced a new way to import configuration data via the spring.config.import property. This is now the default way to bind to Config Server.
         #  Spring Boot 2.4  引入了一种通过spring.config.import属性导入配置数据的新方法。这是现在绑定到配置服务器的默认方式。

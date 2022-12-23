@@ -40,4 +40,13 @@ public class OrderControllerFeign {
 //        return target.getPaymentFeignTimeout();
     }
 
+    /**
+     * zipkin 链路追踪测试
+     * @return
+     */
+    @GetMapping("/feign/pay/zipkin")
+    public String getPaymentZipkin(){
+        return  paymentServiceFeign.getPaymentZipkin();
+    }
+
 }

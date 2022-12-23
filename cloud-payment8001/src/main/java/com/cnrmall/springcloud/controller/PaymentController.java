@@ -40,6 +40,15 @@ public class PaymentController {
         return serverPort;
     }
 
+    /**
+     * zipkin 链路追踪测试
+     * @return
+     */
+    @GetMapping("/zipkin")
+    public String queryPaymentZipkin(){
+        return "ServerPort: " + serverPort + "; Zipkin & Sleuth 链路追踪测试 ";
+    }
+
     @GetMapping("/query/{id}")
     public CommonResult queryPayment(@PathVariable int id){
         CommonResult cr = new CommonResult();

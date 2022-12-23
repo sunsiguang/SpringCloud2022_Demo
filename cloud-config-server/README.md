@@ -8,3 +8,13 @@
 [//]: # (     {"_links":{"self":{"href":"http://localhost:8888/actuator","templated":false},"busrefresh":{"href":"http://localhost:8888/actuator/busrefresh","templated":false},"busrefresh-destinations":{"href":"http://localhost:8888/actuator/busrefresh/{*destinations}","templated":true}}})
 4.     客户端 查看 配置文件(从configServer 上拉取)    http://localhost:3355/configinfo
 5.     客户端 查看 配置文件(从configServer 上拉取)    http://localhost:3366/configinfo
+
+---
+### 定向刷新 ：刷新config-server, 自动更新config-client:3355
+1.      同上1，2 步骤
+2.     手动定向刷新 ：http://localhost:8888/actuator/busrefresh/cloud-config-client:3355    client服务名:端口
+3.     客户端 查看 配置文件(从configServer 上拉取)    http://localhost:3355/configinfo    变化
+4.     客户端 查看 配置文件(从configServer 上拉取)    http://localhost:3366/configinfo    无变化
+
+
+

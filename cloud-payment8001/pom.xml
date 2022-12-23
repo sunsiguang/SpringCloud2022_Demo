@@ -13,6 +13,7 @@
 
     <dependencies>
 
+
         <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-netflix-eureka-client -->
         <!-- SpringBoot 整合 eureka 客户端 -->
         <dependency>
@@ -20,7 +21,6 @@
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
             <version>3.1.4</version>
         </dependency>
-
 
         <!-- 引入公共包 -->
         <dependency>
@@ -45,6 +45,7 @@
             <!--<version>1.2.4</version>-->
         <!--</dependency>-->
 
+<!--        集成 mybatis-plus starter -->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>

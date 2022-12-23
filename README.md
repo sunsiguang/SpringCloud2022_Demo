@@ -34,5 +34,10 @@
 ## RabbitMQ Server  
 *  http://127.0.0.1:15672/
 
+## ZipKin  https://zipkin.io/
+    下载地址： https://repo1.maven.org/maven2/io/zipkin/zipkin-server/
+    运行：java -jar zipkin-server-2.24.0-exec.jar
+*  http://localhost:9411/zipkin/
+
 
 

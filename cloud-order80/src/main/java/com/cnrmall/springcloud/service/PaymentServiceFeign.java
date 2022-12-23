@@ -23,4 +23,7 @@ public interface PaymentServiceFeign {
 
 //    @RequestLine("POST /account/{id}")
 //    Account getAccountInfo(@Param("id") String id);
+
+    @GetMapping("/pay/zipkin")
+    public String getPaymentZipkin();
 }

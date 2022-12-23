@@ -5,6 +5,11 @@ spring:
   application:
     name: cloud-order-service  #服务名
 
+  zipkin:   # 增加 链路追踪 配置类
+    base-url: http://localhost:9411  # zipkin的服务地址
+  sleuth:
+    sampler:
+      probability: 1   # 采样率，介于0到1之间，1表示全部采集
 
 # 客户端Eureka 配置
 eureka:

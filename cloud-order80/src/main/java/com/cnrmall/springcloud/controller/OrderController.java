@@ -26,4 +26,6 @@ public class OrderController {
 
        return restTemplate.postForObject(PAYMENT_URL + "/pay/create",payment,CommonResult.class);
     }
+
+
 }
