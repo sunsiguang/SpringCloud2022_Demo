@@ -31,5 +31,8 @@
 
 ## SpringCloud Bus  消息总线 ()， Nacos 可以替代
 
+## RabbitMQ Server  
+*  http://127.0.0.1:15672/
+
 
 

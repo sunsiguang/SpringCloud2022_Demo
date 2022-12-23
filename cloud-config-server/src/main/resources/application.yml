@@ -16,7 +16,15 @@ spring:
 #          force-pull: true
 #          username: configserver
 #          password: DZ4anb8c
-      label: master
+          label: master
+          default-label: master
+
+  # 添加 rabbitMQ 配置支持，用于BUS 消息总线推送
+  rabbitmq:
+      host: localhost
+      port: 5672
+      username: guest
+      password: guest
 
 
 # 客户端Eureka 配置
@@ -31,3 +39,13 @@ eureka:
     service-url:
       #defaultZone:  localhost:8761/eureka/    #单机配置
       defaultZone:  http://eureka8761.com:8761/eureka/
+
+
+
+# 关键步骤 ： rabbitMQ 相关配置，暴露bus 刷新配置的端点，利用rabbitMQ 和  actuator  ( Config Server 端配置)
+management:
+    endpoints:  # 暴露bus 刷新配置的端点
+        web:
+            exposure:
+                include:  bus-refresh
+

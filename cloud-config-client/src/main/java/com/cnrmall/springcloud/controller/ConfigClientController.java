@@ -15,12 +15,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RefreshScope  //刷新配置文件  通过post请求，手动刷新：curl -X POST "http://localhost:3355/actuator/refresh"
 public class ConfigClientController {
 
+    @Value("${server.port}")
+    private String serverPort;
+
     @Value("${config.info}")
     private String configInfo;
 
     @GetMapping("/configinfo")
     public  String getConfigInfo(){
-        return configInfo;
+        return  "ServerPort:"+serverPort + ";  configinfo: " + configInfo ;
     }
 
 }

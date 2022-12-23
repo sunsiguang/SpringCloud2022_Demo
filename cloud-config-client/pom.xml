@@ -19,6 +19,13 @@
 
     <dependencies>
 
+        <!-- 添加消息总线 BUS RabbitMQ 支持-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bus-amqp</artifactId>
+        </dependency>
+
+        <!-- 客户端 配置中心数据获取  Config 支持-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>
