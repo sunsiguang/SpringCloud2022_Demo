@@ -19,21 +19,21 @@ public class SpringDataJpaTest {
     @Before
     public void before() {
         UserDto user = new UserDto();
-        user.setId(1L);
+        user.setId(1);
         user.setName("风清扬");
         user.setAccount("fengqy");
         user.setPwd("123456");
         userDao.save(user); //保存
 
         user = new UserDto();
-        user.setId(3L);
+        user.setId(2);
         user.setName("东方不败");
         user.setAccount("bubai");
         user.setPwd("123456");
         userDao.save(user);
 
         user = new UserDto();
-        user.setId(5L);
+        user.setId(3);
         user.setName("向问天");
         user.setAccount("wentian");
         user.setPwd("123456");
@@ -43,13 +43,13 @@ public class SpringDataJpaTest {
     @Test
     public void testAdd() {
         UserDto user = new UserDto();
-        user.setId(2L);
+        user.setId(1);
         user.setName("任我行");
         user.setAccount("renwox");
         user.setPwd("123456");
         userDao.save(user);
         user = new UserDto();
-        user.setId(4L);
+        user.setId(2);
         user.setName("令狐冲");
         user.setAccount("linghuc");
         user.setPwd("123456");
