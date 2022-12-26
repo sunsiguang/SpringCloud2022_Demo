@@ -13,7 +13,6 @@
 
     <dependencies>
 
-
         <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-netflix-eureka-client -->
         <!-- SpringBoot 整合 eureka 客户端 -->
         <dependency>
