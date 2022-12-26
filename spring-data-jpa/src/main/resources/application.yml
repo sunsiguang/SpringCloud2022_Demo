@@ -1,0 +1,13 @@
+server:
+   port:  88
+spring:
+  application:
+      name: data-jpa
+  datasource:
+    url: jdbc:mysql://192.168.231.144:3306/test?charset=utf8
+    username: test
+    password: test
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+    show-sql=true: true

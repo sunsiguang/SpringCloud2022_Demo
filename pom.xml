@@ -17,6 +17,7 @@
         <module>cloud-gateway9527</module>
         <module>cloud-config-server</module>
         <module>cloud-config-client</module>
+        <module>spring-data-jpa</module>
 
 
     </modules>
