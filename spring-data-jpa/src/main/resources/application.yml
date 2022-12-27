@@ -10,4 +10,4 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
-    show-sql=true: true
+    show-sql=true: true   # sql 打印
