@@ -9,5 +9,12 @@ spring:
     password: test
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
-    hibernate:
-    show-sql=true: true   # sql 打印
+     show-sql: true   # sql 打印
+     properties:
+       hibernate:
+         format_sql: true  # 格式化
+
+logging:
+  level:
+    org.hibernate.SQL: info  # debug 也会输出一条SQL语句
+    org.hibernate.type.descriptor.sql.BasicBinder: trace

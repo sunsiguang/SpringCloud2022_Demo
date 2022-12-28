@@ -10,7 +10,7 @@ import javax.persistence.*;
  */
 
 @Entity
-@Table(name = "User")
+@Table(name = "User1")
 @Data
 @NoArgsConstructor(force = true)   //当类中有final字段没有被初始化时，编译器会报错，此时可用@NoArgsConstructor(force = true)
 @AllArgsConstructor
