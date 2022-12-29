@@ -19,6 +19,12 @@
 
     <dependencies>
 
+        <!-- 引入 Nacos config Starter 配置中心 -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+
         <!-- 引入 Nacos Discovery Starter -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>

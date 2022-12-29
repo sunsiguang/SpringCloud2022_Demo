@@ -19,6 +19,18 @@
 
     <dependencies>
 
+        <!-- 引入 Nacos config Starter 配置中心 -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+
+        <!--引入 bootstrap.yml 文件，如果不生效，请引入如下POM　-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bootstrap</artifactId>
+        </dependency>
+
         <!-- 引入 Nacos Discovery Starter -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>

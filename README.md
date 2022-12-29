@@ -239,4 +239,76 @@
           probability: 1
     ```
 
+## Nacos  (注册和配置中心)
+*     http://localhost:8848/nacos/
+
+##  cloud-payment-nacos  注册服务
+1.     引入POM
+   ```xml
+   <!-- 引入 Nacos Discovery Starter -->
+   <dependency>
+      <groupId>com.alibaba.cloud</groupId>
+      <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+   </dependency>
+   ```
+2.     application.yml 
+   ```yaml
+   spring:
+       application:
+            name: cloud-payment-service  #服务名
+       cloud:
+            nacos:
+               discovery:
+                   server-addr: 127.0.0.1:8848
+   ```
+3.     启动类
+   ```java
+   @SpringBootApplication
+   @EnableDiscoveryClient
+   public class PaymentMain9001 {}
+   ```
+
+##  cloud-payment-nacos  配置服务
+1.     引入POM
+   ```xml
+     <!-- 引入 Nacos config Starter 配置中心 -->
+     <dependency>
+         <groupId>com.alibaba.cloud</groupId>
+         <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+     </dependency>
+
+     <!--引入 bootstrap.yml 文件，如果不生效，请引入如下POM　-->
+     <dependency>
+         <groupId>org.springframework.cloud</groupId>
+         <artifactId>spring-cloud-starter-bootstrap</artifactId>
+     </dependency>
+   ```
+2.     bootstrap.yml     
+*      配置文件优先级（有高到低）  bootstrap.properties >  bootstrap.yml > application.properties > application.yml
+   ```yaml
+   spring:
+     application:
+       name: cloud-payment-service  #服务名
+     cloud:
+       nacos:
+         discovery:
+             server-addr: 127.0.0.1:8848  #注册中心
+         config:
+             server-addr: 127.0.0.1:8848  #配置中心
+             file-extension:  yaml  #指定yaml 配置文件格式
+   
+     profiles:
+         active:  dev  #环境标识
+   ```
+3.     配置文件的刷新和查询
+   ```java
+   @RestController
+   @RequestMapping("/config")
+   @RefreshScope
+   public class ConfigController {
+   
+      @Value("${config.info}")
+      private String configInfo;
+   }
+   ```
 
