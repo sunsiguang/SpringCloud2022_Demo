@@ -1,0 +1,22 @@
+server:
+   port:  83
+
+spring:
+    application:
+         name: cloud-order-service  #服务名
+    cloud:
+         nacos:
+            discovery:
+                server-addr: 127.0.0.1:8848
+
+# 消费者将要去访问的微服务名称，可选项
+service-url:
+     payment-url: http://cloud-payment-service
+     payment-service: cloud-payment-service
+
+
+management:
+    endpoints:
+        web:
+            exposure:
+                 include: '*'
