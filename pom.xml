@@ -20,6 +20,7 @@
         <module>spring-data-jpa</module>
         <module>cloud-payment-nacos</module>
         <module>cloud-order-nacos</module>
+        <module>cloud-sentinel-service</module>
 
 
     </modules>

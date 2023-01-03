@@ -299,6 +299,9 @@
    
      profiles:
          active:  dev  #环境标识
+  
+      # ${prefix}-${spring.profiles.active}.${file-extension}
+      # cloud-payment-service-dev.yml
    ```
 3.     配置文件的刷新和查询
    ```java
@@ -311,4 +314,10 @@
       private String configInfo;
    }
    ```
+4.     验证测试
+   ```shell
+     http://localhost:83/config/info
+     返回： from nacos config center, cloud-payment-service-prod.yaml,version=2, serverPort : 9002
+   ```
 
+##  cloud-sentinel-service  sentinel 服务监控，流控，降级 ，熔断配置

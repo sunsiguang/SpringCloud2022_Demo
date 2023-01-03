@@ -1,0 +1,26 @@
+server:
+    port: 8401
+
+spring:
+    main:
+        # 依赖循环引用是不鼓励的，默认情况下是禁止的
+        #  解决升级 spring boot 2.6 后，因循环引用导致启动时报错的问题
+        allow-circular-references: true
+    application:
+        name:   cloud-sentinel-service
+    cloud:
+        nacos:
+            discovery:
+                # Nacos 注册中心
+                server-addr:  localhost:8848
+        sentinel:
+            transport:
+                dashboard:  localhost:8080  # Sentinel  dashboard 地址
+                port: 8719   #默认8719 端口，假如被占用会自动从8719开始依次+1 扫描，直到找到未被占用的端口
+
+#  暴露端点监控
+management:
+     endpoints:
+         web:
+              exposure:
+                  include:  '*'

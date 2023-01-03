@@ -8,6 +8,8 @@ spring:
       config:
           server-addr: 127.0.0.1:8848  #配置中心
           file-extension:  yaml  #指定yaml 配置文件格式
+          #namespaceId:  #  ID
+          group: DEFAULT_GROUP  # 默认分组, 可选
 
   profiles:
       active:  dev  #环境标识
