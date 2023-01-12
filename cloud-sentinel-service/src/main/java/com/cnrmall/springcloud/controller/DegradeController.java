@@ -46,7 +46,7 @@ public class DegradeController {
     @GetMapping("/error_ratio")
     public CommonResult error_ratio(){
             try {
-                    int i = 10/0 ;
+                    //TODO
             }catch (Exception e ){
                     e.printStackTrace();;
             }

@@ -2,21 +2,37 @@ server:
    port:  83
 
 spring:
+    main:
+        # 依赖循环引用是不鼓励的，默认情况下是禁止的
+        #  解决升级 spring boot 2.6 后，因循环引用导致启动时报错的问题
+        allow-circular-references: true
     application:
-         name: cloud-order-service  #服务名
+        name: cloud-order-service  #服务名
     cloud:
-         nacos:
+        nacos:
             discovery:
-                server-addr: 127.0.0.1:8848
+               server-addr: 127.0.0.1:8848
 
-# 消费者将要去访问的微服务名称，可选项
+        sentinel:
+            transport:
+                dashboard: localhost:8080  # Sentinel  dashboard 地址
+                port: 8719   #默认8719 端口，假如被占用会自动从8719开始依次+1 扫描，直到找到未被占用的端口
+
+# 消费者将要去访问的微服务名称，可选项, 自定义的参数配置
 service-url:
      payment-url: http://cloud-payment-service
      payment-service: cloud-payment-service
 
-
+#暴露actuator端点
+#添加Sentinel后，需要暴露/actuator/sentinel端点,而Springboot默认是没有暴露该端点的，
+#所以需要设置，测试http://localhost:83/actuator/sentinel
 management:
     endpoints:
         web:
             exposure:
                  include: '*'
+
+#激活sentinel 对feign 的支持
+feign:
+    sentinel:
+        enabled: true

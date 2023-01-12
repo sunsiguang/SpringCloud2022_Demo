@@ -9,6 +9,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author David
  * @date 2023/1/3 14:41
+ * 流控 Demo
  */
 @RestController
 public class FlowLimitController {

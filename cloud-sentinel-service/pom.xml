@@ -31,11 +31,11 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
 
-        <!-- sentinel  nacos  持久化 -->
-<!--        <dependency>-->
-<!--            <groupId>com.alibaba.csp</groupId>-->
-<!--            <artifactId>sentinel-datasource-nacos</artifactId>-->
-<!--        </dependency>-->
+         <!-- sentinel  的流控规则 持久化 到  nacos   -->
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-datasource-nacos</artifactId>
+        </dependency>
 
         <!--暴露监控服务 -->
         <dependency>

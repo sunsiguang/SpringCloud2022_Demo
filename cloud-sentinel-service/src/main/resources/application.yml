@@ -17,6 +17,37 @@ spring:
             transport:
                 dashboard:  localhost:8080  # Sentinel  dashboard 地址
                 port: 8719   #默认8719 端口，假如被占用会自动从8719开始依次+1 扫描，直到找到未被占用的端口
+            # nacos 持久化数据
+            datasource:
+                # 可配置多个规则
+                # 可自定义key-流控规则
+                dashboard-flow:  # 自定义名字 流控规则
+                    nacos:
+                        server-addr: localhost:8848
+                        dataId:  ${spring.application.name}-flow   # ID--流控规则
+                        groupId:  DEFAULT_GROUP
+                        data-type:  json   # 都可以生效
+                        rule-type:   flow  # 流控规则
+                        #可自定义key-系统规则
+                dashboard-degrade:  #降级熔断规则
+                    nacos:
+                        server-addr: localhost:8848
+                        dataId: ${spring.application.name}-degrade  # ID--降级熔断规则
+                        data-type:  json
+                        rule-type: degrade
+                dashboard-param-flow:  #热点参数规则
+                    nacos:
+                        server-addr: localhost:8848
+                        dataId: ${spring.application.name}-param-flow  # ID--热点参数规则
+                        data-type: json
+                        rule-type: param-flow  #热点参数规则
+                dashboard-system: # 系统规则
+                    nacos:
+                        server-addr: localhost:8848
+                        dataId: ${spring.application.name}-system  # ID--系统规则
+                        file-extension: json   # 都可以生效
+                        rule-type: system
+                        #namespace: ${spring.profiles.active}
 
 #  暴露端点监控
 management:

@@ -321,3 +321,143 @@
    ```
 
 ##  cloud-sentinel-service  sentinel 服务监控，流控，降级 ，熔断配置
+*      https://sentinelguard.io/zh-cn/docs/introduction.html
+###    Spring Cloud Alibaba Sentinel 的示例可以参考 sentinel-guide-spring-cloud
+*       https://github.com/sentinel-group/sentinel-guides/tree/master/sentinel-guide-spring-cloud
+1.     第一步，引入POM
+   ```xml
+   <!-- sentinel  核心组件  -->
+   <dependency>
+      <groupId>com.alibaba.cloud</groupId>
+      <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+   </dependency>
+   ```
+2.     第二步，修改配置文件application.yml 
+   ```yaml
+   spring:    
+       cloud:        
+           sentinel:
+               transport:
+                   dashboard:  localhost:8080  # Sentinel  dashboard 地址
+                   port: 8719   #默认8719 端口，假如被占用会自动从8719开始依次+1 扫描，直到找到未被占用的端口
+   #  暴露端点监控
+   management:
+      endpoints:
+         web:
+            exposure:
+               include:  '*'
+   ```
+3.     在sentinel控制台中设置流控规则
+        [可选] 在代码里添加 @SentinelResource( ...  ), 自定义资源
+4.     访问http://localhost:8800/actuator/sentinel
+
+
+###  Sentinel  流控规则的持久化 Nacos 方式
+1.     引入Pom
+   ```xml
+   <!-- sentinel  nacos  持久化 -->
+   <dependency>
+       <groupId>com.alibaba.csp</groupId>
+       <artifactId>sentinel-datasource-nacos</artifactId>
+   </dependency>
+   ```
+2.     修改配置application.yml 文件
+```yaml
+spring:
+    main:
+        # 依赖循环引用是不鼓励的，默认情况下是禁止的
+        #  解决升级 spring boot 2.6 后，因循环引用导致启动时报错的问题
+        allow-circular-references: true
+    application:
+        name:   cloud-sentinel-service
+    cloud:
+        nacos:
+            discovery:
+                # Nacos 注册中心
+                server-addr:  localhost:8848
+        sentinel:
+            transport:
+                dashboard:  localhost:8080  # Sentinel  dashboard 地址
+                port: 8719   #默认8719 端口，假如被占用会自动从8719开始依次+1 扫描，直到找到未被占用的端口
+            # nacos 持久化数据
+            datasource:
+                # 可配置多个规则
+                # 可自定义key-流控规则
+                dashboard-flow:  # 自定义名字
+                    nacos:
+                        server-addr: localhost:8848
+                        dataId:  ${spring.application.name}-flow   # ID--流控规则
+                        groupId:  DEFAULT_GROUP
+                        data-type:  json
+                        rule-type:   flow  # 流控规则
+                        #可自定义key-系统规则
+                dashboard-system:
+                    nacos:
+                        server-addr: localhost:8848
+                        dataId: ${spring.application.name}-system  # ID--系统规则
+                        file-extension: json
+                        rule-type: system
+                        #namespace: ${spring.profiles.active}
+```
+
+1.     在Nacos 配置中心增加流控配置文件 cloud-sentinel-service-flow
+   ```json
+   [
+     {
+       "resource": "/payment",
+       "limitApp": "default",
+       "grade": 1,
+       "count": 1,
+       "clusterMode": false,
+       "controlBehavior": 0,
+       "strategy": 0,
+       "warmUpPeriodSec": 10,
+       "maxQueueingTimeMs": 500  
+     }
+   ]
+   ```
+2.     在Nacos 配置中心增加熔断配置文件 cloud-sentinel-service-degrade
+   ```json
+   [
+     {
+       
+       "resource": "/error_count",
+       "limitApp": "default",    
+       "grade": 2,  
+       "count": 2,     
+       "statIntervalMs": 1000,
+       "timeWindow": 10
+     }
+   ]
+   ```
+3.     在Nacos 配置中心，配置热点参数规则
+     ```json
+      [
+        {
+          "resource": "hotKey",    
+          "grade": 1,
+          "paramIdx": 0,
+          "count": 2,  
+          "durationInSec": 2,
+          "controlBehavior": 0, 
+          "limitApp": "default", 
+          "paramFlowItemList": [
+            {
+              "classType": "int",    // 参数类型，必须和方法上的参数类型一致，才生效
+              "count": 20,
+              "object": 3
+            }
+          ]
+        }
+      ]
+      ```
+
+
+4.     在Nacos 配置中心增加系统配置文件 cloud-sentinel-service-system
+   ```json
+   [
+     {
+       "qps": 1
+     }
+   ]
+   ```
